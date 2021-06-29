@@ -9,6 +9,7 @@ main{
   left: 0;
   width: 100%;
   height: 100vh;
+  /* background: blue; */
 }
 
 .scrollable{
@@ -17,13 +18,14 @@ main{
   left: 0;
   width: 100%;
   will-change: transform;
-  background: black;
+  /* background: black; */
 }
 
 .container{
   position: relative;
   width: 100%;
   height: 100vh;
+  /* background: red; */
 }
 
 .image-item{
@@ -34,7 +36,7 @@ main{
   width: 300px;
   height: 400px;
   /* background: white; */
-  perspective: 1000px;
+  /* perspective: 1000px; */
   transform-style: preserve-3d;
 }
 
@@ -47,4 +49,19 @@ main{
   background-position: center;
   background-size: cover;
   transform-style: preserve-3d;
+}
+
+
+.r{
+  background: red;
+}
+
+.b{
+  background-color: blue;
+}
+.g{
+  background: green;
+}
+.bl{
+  background-color: black;
 }

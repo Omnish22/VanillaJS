@@ -23,7 +23,6 @@ function animate(){
   scrollableSection.style.transform = `translate3d(0,${-current}px,0)`; // give smooth scrolling
   // scrollableSection.style.transform = `translateY(${-current}px)`
 
-  console.log("animate call");
   images.forEach(image=>{
     let top = image.parentElement.getBoundingClientRect().top;
     image.style.transform = `rotateX(${top*0.1}deg) rotateY(${top*0.1}deg)`
@@ -34,4 +33,18 @@ function animate(){
 
 animate();
 
-console.log("amazing")
+
+// window.addEventListener("scroll",function(){
+//   target = window.scrollY;
+//   current = lerp(current, target, ease);
+//   // translate3d allow to move in all three axis here two is given and as we scroll down images move up so negtive y is given
+//   scrollableSection.style.transform = `translate3d(0,${-current}px,0)`; // give smooth scrolling
+//   // scrollableSection.style.transform = `translateY(${-current}px)`
+//
+//   console.log("animate call");
+//   images.forEach(image=>{
+//     let top = image.parentElement.getBoundingClientRect().top;
+//     image.style.transform = `rotateX(${top*0.1}deg) rotateY(${top*0.1}deg)`
+//
+//   });
+// })
