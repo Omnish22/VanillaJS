@@ -41,7 +41,7 @@ function showSuccess(element){
 
 function checkRequired(elements){
   elements.forEach(function(element){
-  if(element.value===""){
+  if(element.value.trim() === ""){
     let className = element.className
     if (className==="password2"){
       className = "password"
@@ -53,10 +53,44 @@ function checkRequired(elements){
   })
 }
 
+function checkEmail(email){
+  if (!validateEmail(email.value)){
+    showError(email,"Email is Invalid");
+  }else{
+    showSuccess(email);
+  }
+}
+
+
+function checkLength(element,minChar,maxChar){
+    if(element.value.length<minChar){
+      showError(element,`${element.className[0].toUpperCase()}${element.className.slice(1)} contain atleast ${minChar} charecters`);
+    }else if(element.value.length > maxChar){
+      showError(element,`${element.className[0].toUpperCase()}${element.className.slice(1)} contain not more than ${maxChar} charecters`);
+    }else{
+      showSuccess(element);
+    }
+  }
+
+function checkPasswordCheck(pass1,pass2){
+  if ( pass1.value === "" ){
+    showError(pass1,"Password not match");
+  }else if(pass1.value !== pass2.value){
+    showError(pass1,"Password not match");
+  }else{
+    showSuccess(pass1);
+  }
+}
+
 form.addEventListener('submit',function(e){
   e.preventDefault();   /* to prevent value from vanishing quickly */
 
 
-  checkRequired([username,email,password,password2])
+  // checkRequired([username,email,password,password2])
+  checkLength(username,4,15)
+  checkLength(password,6,25)
+  checkEmail(email);
+  checkPasswordCheck(password2,password);
+
 
 })
